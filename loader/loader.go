@@ -10,18 +10,17 @@ import (
 )
 
 func GetContractAbi(contractName string) abi.ABI {
-
-	contractABI, err := abi.JSON(strings.NewReader(getLocalABI(contractName)))
+	contractAbi, err := abi.JSON(strings.NewReader(getLocalABI(contractName)))
 
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	return contractABI
+	return contractAbi
 }
 
 func getLocalABI(abiName string) string {
-	abiPath := "../abis/" + abiName + ".json"
+	abiPath := "./abis/" + abiName + ".json"
 
 	abiFile, err := os.Open(abiPath)
 	if err != nil {

@@ -1,4 +1,4 @@
-module github.com/opynfinance/MonitoringAPI-Go/decoder
+module github.com/haythemsellami/SqueethAlert/decoder
 
 go 1.19
 
@@ -19,3 +19,6 @@ require (
 	golang.org/x/sys v0.0.0-20220520151302-bc2c85ada10a // indirect
 	gopkg.in/natefinch/npipe.v2 v2.0.0-20160621034901-c1b8fa8bdcce // indirect
 )
+
+require github.com/haythemsellami/SqueethAlert/common v0.0.0
+replace github.com/haythemsellami/SqueethAlert/common => ./common
