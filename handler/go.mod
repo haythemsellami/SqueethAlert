@@ -1,10 +1,23 @@
-module github.com/haythemsellami/SqueethAlert
+module github.com/haythemsellami/SqueethAlert/handler
 
 go 1.19
+
+require github.com/haythemsellami/SqueethAlert/loader v0.0.0
+
+replace github.com/haythemsellami/SqueethAlert/loader => ../loader
+
+require github.com/haythemsellami/SqueethAlert/decoder v0.0.0
+
+replace github.com/haythemsellami/SqueethAlert/decoder => ../decoder
+
+require github.com/haythemsellami/SqueethAlert/common v0.0.0
+
+replace github.com/haythemsellami/SqueethAlert/common => ../common
 
 require (
 	github.com/ethereum/go-ethereum v1.10.26
 	github.com/gin-gonic/gin v1.8.2
+	github.com/haythemsellami/SqueethAlert/encoder v0.0.0
 )
 
 require (
@@ -39,9 +52,4 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 )
 
-require (
-	github.com/haythemsellami/SqueethAlert/handler v0.0.0
-	github.com/joho/godotenv v1.4.0
-)
-
-replace github.com/haythemsellami/SqueethAlert/handler => ./handler
+replace github.com/haythemsellami/SqueethAlert/encoder => ../encoder
