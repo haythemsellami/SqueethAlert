@@ -21,4 +21,4 @@ require (
 )
 
 require github.com/haythemsellami/SqueethAlert/common v0.0.0
-// replace github.com/haythemsellami/SqueethAlert/common => ../common
+replace github.com/haythemsellami/SqueethAlert/common => ../common

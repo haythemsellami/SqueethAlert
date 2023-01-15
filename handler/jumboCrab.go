@@ -1,7 +1,6 @@
 package handler
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 
@@ -11,6 +10,7 @@ import (
 	"github.com/haythemsellami/SqueethAlert/decoder"
 	"github.com/haythemsellami/SqueethAlert/encoder"
 	"github.com/haythemsellami/SqueethAlert/loader"
+	"github.com/haythemsellami/SqueethAlert/notification"
 )
 
 func PostJumboCrabHandler(client *ethclient.Client) gin.HandlerFunc {
@@ -31,7 +31,9 @@ func PostJumboCrabHandler(client *ethclient.Client) gin.HandlerFunc {
 
 		eventsStructs := encoder.PackLogIntoEventStruct(&jumboCrabAbi, txLogs)
 
-		fmt.Printf("%+v\n", eventsStructs)
+		// fmt.Printf("%+v\n", eventsStructs)
+
+		notification.JumboCrabNotify(eventsStructs)
 
 		c.JSON(http.StatusOK, gin.H{"status": "ok"})
 	}

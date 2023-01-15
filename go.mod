@@ -40,8 +40,23 @@ require (
 )
 
 require (
-	github.com/haythemsellami/SqueethAlert/handler v0.0.0
 	github.com/joho/godotenv v1.4.0
 )
 
-// replace github.com/haythemsellami/SqueethAlert/handler => ./handler
+require github.com/haythemsellami/SqueethAlert/handler v0.0.0
+replace github.com/haythemsellami/SqueethAlert/handler => ./handler
+
+require github.com/haythemsellami/SqueethAlert/loader v0.0.0
+replace github.com/haythemsellami/SqueethAlert/loader => ./loader
+
+require github.com/haythemsellami/SqueethAlert/decoder v0.0.0
+replace github.com/haythemsellami/SqueethAlert/decoder => ./decoder
+
+require github.com/haythemsellami/SqueethAlert/common v0.0.0
+replace github.com/haythemsellami/SqueethAlert/common => ./common
+
+require github.com/haythemsellami/SqueethAlert/encoder v0.0.0
+replace github.com/haythemsellami/SqueethAlert/encoder => ./encoder
+
+require github.com/haythemsellami/SqueethAlert/notification v0.0.0
+replace github.com/haythemsellami/SqueethAlert/notification => ./notification

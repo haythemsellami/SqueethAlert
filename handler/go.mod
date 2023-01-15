@@ -4,21 +4,26 @@ go 1.19
 
 require github.com/haythemsellami/SqueethAlert/loader v0.0.0
 
-// replace github.com/haythemsellami/SqueethAlert/loader => ../loader
+replace github.com/haythemsellami/SqueethAlert/loader => ../loader
 
 require github.com/haythemsellami/SqueethAlert/decoder v0.0.0
 
-// replace github.com/haythemsellami/SqueethAlert/decoder => ../decoder
+replace github.com/haythemsellami/SqueethAlert/decoder => ../decoder
 
 require github.com/haythemsellami/SqueethAlert/common v0.0.0
 
-// replace github.com/haythemsellami/SqueethAlert/common => ../common
+replace github.com/haythemsellami/SqueethAlert/common => ../common
 
 require (
 	github.com/ethereum/go-ethereum v1.10.26
 	github.com/gin-gonic/gin v1.8.2
-	github.com/haythemsellami/SqueethAlert/encoder v0.0.0
 )
+
+require github.com/haythemsellami/SqueethAlert/encoder v0.0.0
+replace github.com/haythemsellami/SqueethAlert/encoder => ../encoder
+
+require github.com/haythemsellami/SqueethAlert/notification v0.0.0
+replace github.com/haythemsellami/SqueethAlert/notification => ../notification
 
 require (
 	github.com/StackExchange/wmi v0.0.0-20180116203802-5d049714c4a6 // indirect
@@ -51,5 +56,3 @@ require (
 	gopkg.in/natefinch/npipe.v2 v2.0.0-20160621034901-c1b8fa8bdcce // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 )
-
-// replace github.com/haythemsellami/SqueethAlert/encoder => ../encoder

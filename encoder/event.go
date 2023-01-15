@@ -1,6 +1,7 @@
 package encoder
 
 import (
+	"fmt"
 	"math/big"
 
 	"github.com/ethereum/go-ethereum/accounts/abi"
@@ -12,7 +13,8 @@ func PackLogIntoEventStruct(contractAbi *abi.ABI, transactionLogs []mcommon.Tran
 	var packedStructs []interface{}
 
 	for _, event := range transactionLogs {
-		if event.Event.Name == "USDCQueued" {
+		switch event.Event.Name {
+		case "USDCQueued":
 			var encodedEvent mcommon.USDCQueuedEvent
 
 			err := contractAbi.UnpackIntoInterface(&encodedEvent, "USDCQueued", event.NonIndexedParams)
@@ -26,6 +28,22 @@ func PackLogIntoEventStruct(contractAbi *abi.ABI, transactionLogs []mcommon.Tran
 			encodedEvent.ReceiptIndex = big.NewInt(0)
 
 			packedStructs = append(packedStructs, encodedEvent)
+		case "CrabQueued":
+			var encodedEvent mcommon.CrabQueuedEvent
+
+			err := contractAbi.UnpackIntoInterface(&encodedEvent, "CrabQueued", event.NonIndexedParams)
+			if err != nil {
+				panic(err)
+			}
+
+			// unpack indexed params
+			encodedEvent.Withdrawer = event.IndexedParams[0]
+			// TODO: fix this and convert the right amount
+			encodedEvent.ReceiptIndex = big.NewInt(0)
+
+			packedStructs = append(packedStructs, encodedEvent)
+		default:
+			fmt.Println("Couldn't encode event struct")
 		}
 	}
 
