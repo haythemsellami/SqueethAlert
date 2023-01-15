@@ -44,4 +44,4 @@ require (
 	github.com/joho/godotenv v1.4.0
 )
 
-replace github.com/haythemsellami/SqueethAlert/handler => ./handler
+// replace github.com/haythemsellami/SqueethAlert/handler => ./handler
